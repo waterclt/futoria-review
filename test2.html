@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WhatsApp Form</title>
+ 
+  </head>
+  <body>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea><br><br>
+
+      <button type="button" onclick="sendWhatsAppMessage()">Send Message</button>
+    </form>
+
+    <script>
+        function sendWhatsAppMessage() {
+          var name = document.getElementById('name').value;
+          var message = document.getElementById('message').value;
+          var phoneNumber = '8547768153'; // Replace with your desired phone number
+  
+          var encodedMessage = encodeURIComponent('Name: ' + name + '\nMessage: ' + message);
+          var whatsappLink = 'https://wa.me/' + phoneNumber + '?text=' + encodedMessage;
+  
+          window.open(whatsappLink);
+        }
+      </script>
+  </body>
+</html>
+html>

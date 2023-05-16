@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WhatsApp Form</title>
+
+  </head>
+  <body>
+    <form>
+      <div class="text-center">
+        <p>1. How do you rate overall interaction and experience with the Sales Department</p>
+      </div>
+      <input type="checkbox" name="check" id="check1" value="1" />
+      <label for="check1">1</label>
+      <input type="checkbox" name="check" id="check2" value="2" />
+      <label for="check2">2</label>
+      <input type="checkbox" name="check" id="check3" value="3" />
+      <label for="check3">3</label>
+      <input type="checkbox" name="check" id="check4" value="4" />
+      <label for="check4">4</label>
+
+      <div class="text-center">
+        <p>2. How do you rate overall interaction and experience with the kdndn f</p>
+      </div>
+      <input type="checkbox" name="check" id="check5" value="1" />
+      <label for="check5">1</label>
+      <input type="checkbox" name="check" id="check6" value="2" />
+      <label for="check6">2</label>
+      <input type="checkbox" name="check" id="check7" value="3" />
+      <label for="check7">3</label>
+      <input type="checkbox" name="check" id="check8" value="4" />
+      <label for="check8">4</label>
+
+      <div class="text-center">
+        <p>3. How do you rate overall interaction and experience with the g
+dfhgdhgdfhgf</p>
+</div>
+<input type="checkbox" name="check" id="check9" value="1" />
+<label for="check9">1</label>
+<input type="checkbox" name="check" id="check10" value="2" />
+<label for="check10">2</label>
+<input type="checkbox" name="check" id="check11" value="3" />
+<label for="check11">3</label>
+<input type="checkbox" name="check" id="check12" value="4" />
+<label for="check12">4</label>
+  <button type="button" onclick="sendWhatsAppMessage()">Send Message</button>
+</form>
+
+
+<script>
+    function sendWhatsAppMessage() {
+      var ratings = [];
+
+      // Retrieve ratings for the first set of checkboxes
+      var checkboxes1 = document.querySelectorAll('div:nth-of-type(1) input[type="checkbox"]');
+      ratings.push(getSelectedRating(checkboxes1));
+
+      // Retrieve ratings for the second set of checkboxes
+      var checkboxes2 = document.querySelectorAll('div:nth-of-type(2) input[type="checkbox"]');
+      ratings.push(getSelectedRating(checkboxes2));
+
+      // Retrieve ratings for the third set of checkboxes
+      var checkboxes3 = document.querySelectorAll('div:nth-of-type(3) input[type="checkbox"]');
+      ratings.push(getSelectedRating(checkboxes3));
+
+      if (ratings.length === 0) {
+        alert('Please select at least one rating.');
+        return;
+      }
+
+      var message = 'Ratings:\n\n';
+      for (var i = 0; i < ratings.length; i++) {
+        message += 'Question ' + (i + 1) + ': ' + ratings[i] + '/4\n';
+      }
+
+      var phoneNumber = '1234567890'; // Replace with your desired phone number
+
+      var encodedMessage = encodeURIComponent(message);
+      var whatsappLink = 'https://wa.me/' + phoneNumber + '?text=' + encodedMessage;
+
+      window.open(whatsappLink);
+    }
+
+    function getSelectedRating(checkboxes) {
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          return checkboxes[i].value;
+        }
+      }
+      return null;
+    }
+  </script>

@@ -1,0 +1,50 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
+}
+
+.logo{
+    max-width: 210px;
+}
+ 
+label,
+  span {
+   position: relative;
+   top: 0;
+   left:0;
+   color: #000;
+   font-size: 22px;
+    border: 3px solid #681e43;
+   font-family: Lato;
+   padding: .3em .6em;
+   border-radius: 100%;
+   -webkit-transition: background-color .5s, top .1s;
+   transition: background-color .5s, top .1s;
+   box-shadow: 1px 1px 1px 1px #CCC;
+ }
+ 
+input[type=checkbox]{
+   background-color: #CC0000;
+   height: 0em;
+   width: 0em;
+   background: none;
+ }
+input[type=checkbox]:checked + label,
+input[type=checkbox]:checked + span {
+   background-color: #4DA269;
+ }
+label:hover{
+   top: -3px;
+ }
+
+ button{
+    background-color: #681e43;
+    border: none;
+    color: #fff;
+    font-size: 15px;;
+    border-radius: 15px;
+ }
